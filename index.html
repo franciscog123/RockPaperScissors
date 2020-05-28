@@ -37,7 +37,7 @@
         return input;
     }
 
-//
+//emulates calculating the outcome of a single round of rock, paper, scissors
 function playRound(playerSelection, computerSelection)
 {
     if(playerSelection == 'rock' && computerSelection == 'rock')
@@ -62,6 +62,7 @@ function playRound(playerSelection, computerSelection)
         return `I didn't account for this scenario. You've outsmarted me so I guess You win!`
 }
 
+//plays 5 rounds of rock paper scissors and displays final score
 function game()
 {
     let compChoice;
