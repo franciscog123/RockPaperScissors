@@ -1,0 +1,43 @@
+body 
+{
+    background: #b5e7a0;
+    text-align: center;
+    align-content: center;
+}
+
+.buttons
+{
+    display:flex;
+    justify-content: space-between;
+    flex-basis: auto;
+}
+
+#rockImage
+{
+    border-radius: 20%;
+    border: 1px solid;
+    transition: all .2s ease-in-out;
+}
+
+#rockImage:hover{
+    transform: scale(1.1);}
+
+#paperImage
+{
+    border-radius: 20%;
+    border: 1px solid;
+    transition: all .2s ease-in-out;
+}
+#paperImage:hover{
+    transform: scale(1.1);}
+
+#scissorsImage
+{
+    border-radius: 20%;
+    border: 1px solid;
+    transition: all .2s ease-in-out;
+}
+
+#scissorsImage:hover{
+    transform: scale(1.1);}
+
