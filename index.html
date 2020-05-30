@@ -1,117 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <h1>Let's play rock, paper scissors!</h1>
-    <p>Open the developer tools(F12) and input <b>game();</b> into the console.</p> 
+    <h3>Choose your weapon below:</h3>
+    <br><br>
+    <div class ="buttons">
+        <input id="rockImage" name="rockBtn" type="image" src="images/rock.jpeg" />
+        <input id="paperImage" name="paperBtn" type="image" src="images/paper.jpeg" />
+        <input id="scissorsImage" name="scissorsBtn" type="image" src="images/scissors.jpeg" />
+    </div>
+    <br>
+    <div class = "results">
+        <p id="compChoiceTxt"></p>
+        <p id="resultTxt"></p>
+        <p id="scoreTxt"></p>
+    </div>
 </body>
 
-<script>
-    //randomly picks rock paper or scissors
-    function computerPlay()
-    {
-        let randNumber = Math.floor(Math.random()*3);
-        if (randNumber===1)
-            return "rock";
-        else if (randNumber===2)
-            return "paper";
-        else
-            return "scissors";
-    }
-
-    //only lets user input rock paper or scissors
-    function playerInput()
-    {
-        let input;
-        
-        while(input !== 'rock' && input != 'paper' && input != 'scissors')
-        {
-            input = window.prompt('Input rock, paper, or scissors: ');
-            input = input.toLowerCase();
-        }
-
-        return input;
-    }
-
-//emulates calculating the outcome of a single round of rock, paper, scissors
-function playRound(playerSelection, computerSelection)
-{
-    if(playerSelection == 'rock' && computerSelection == 'rock')
-        return `It's a draw!`;
-    else if(playerSelection == 'rock' && computerSelection == 'paper')
-        return `You lose! Paper beats rock!`;
-    else if(playerSelection == 'rock' && computerSelection == 'scissors')
-        return `You win! Rock beats scissors.`;
-    else if(playerSelection == 'paper' && computerSelection == 'paper')
-        return `It's a draw!`;
-    else if(playerSelection == 'paper' && computerSelection == 'rock')
-        return `You win! Paper beats rock.`;
-    else if(playerSelection == 'paper' && computerSelection == 'scissors')
-        return `You lose! Scissors beats paper.`;
-    else if(playerSelection == 'scissors' && computerSelection == 'scissors')
-        return `It's a draw!`;
-    else if(playerSelection == 'scissors' && computerSelection == 'rock')
-        return `You lose! Rock beats scissors!`;
-    else if(playerSelection == 'scissors' && computerSelection == 'paper')
-        return `You win! Scissors beats paper.`;
-    else
-        return `I didn't account for this scenario. You've outsmarted me so I guess You win!`
-}
-
-//plays 5 rounds of rock paper scissors and displays final score
-function game()
-{
-    let compChoice;
-    let playerChoice;
-    let roundOutcome;
-    let playerScore=0;
-    let compScore=0;
-
-    for(let i=0; i<5; i++)
-    {   
-        compChoice=computerPlay();
-        playerChoice=playerInput();
-        roundOutcome=playRound(playerChoice, compChoice);
-        alert('The computer picked ' + compChoice + '.\n'+roundOutcome);
-
-        if(roundOutcome.includes('You win'))
-        {
-            playerScore++;
-            console.log(`Your score: ${playerScore}`);
-            console.log(`Computer Score: ${compScore}`);
-        }                
-        else if (roundOutcome.includes('You lose'))
-        {
-            compScore++;
-            console.log(`Your score: ${playerScore}`);
-            console.log(`Computer Score: ${compScore}`);
-        }
-        else
-        {
-            console.log(`Your score: ${playerScore}`);
-            console.log(`Computer Score: ${compScore}`);
-        }
-    }
-
-    if(playerScore>compScore)
-        alert('You win!'+returnScore(playerScore, compScore));
-    else if(playerScore<compScore)
-        alert('You lose!' + returnScore(playerScore, compScore));
-    else
-        alert(`It's a draw!` + returnScore(playerScore, compScore));
-}
-
-function returnScore(playerScore, compScore)
-{
-    return(`
-Final Score
-You: ${playerScore}
-Computer: ${compScore}`);
-}
-
-</script>
+<script src="script.js"></script> 
 </html>
